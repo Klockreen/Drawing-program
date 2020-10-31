@@ -62,7 +62,7 @@ window.addEventListener('load' , () => {
 
   function draw(e){
     if (!painting) return;
-    ctx.lineWidth = 20;
+   /*  ctx.lineWidth = 5; */
     ctx.lineCap = "round";
     
     
@@ -103,6 +103,8 @@ window.addEventListener('load' , () => {
   slider.oninput = function() {
     output.innerHTML = this.value;
     ctx.lineWidth = this.value;
+    console.log(ctx.lineWidth)
+  
   }
 
 

@@ -6,21 +6,13 @@
   z-index: 1;
   font-family: Arial, Helvetica, sans-serif
 } 
-.main nav{
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  justify-content: center;
-  background-color: #353535;
-  width: 206vh;
+.main-nav{
   position: fixed;
-  z-index: 2;
-  width: 100%;
+  width: 100vw;
 }
 
 nav ul {
-  white-space: nowrap;
-  margin: 0 auto;
+
 }
 
  nav li{
@@ -33,14 +25,15 @@ nav button{
   border: none;
   margin: 3px;
   padding: 1px;
+  border: solid 0.3px #575757;
+ /*  width: 45px; */
 }
 
 nav button:hover{
   color: white;
-  border: solid 0.3px black;
+  border: solid 0.3px black; 
   background-color: #424242;
-  margin: 3px;
-  padding: 0px;
+
 }
 
 
@@ -61,8 +54,9 @@ nav button:hover{
   align-items: center;
   justify-content: center;
   background-color: #353535;
-  width: 206vh;
+  width: 100vw;
   position: fixed;
+  margin-top: 25px;
 }
 
 .panel button{
