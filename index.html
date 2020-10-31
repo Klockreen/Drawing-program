@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <section>
+      <nav class="main-nav"> 
+        <ul>
+          <li><button class="fileNav">File</button></li>
+          <li><button class="editNav">Edit</button></li>
+          <li><button class="layerNav">Layer</button></li>
+          <li><button class="typeNav">Type</button></li>
+          <li><button class="selectNav">Select</button></li>
+          <li><button class="typeNav">Type</button></li>
+          <li><button class="filterNav">Filter</button></li>
+          <li><button class="3dNav">3D</button></li>
+          <li><button class="viweNav">Viwe</button></li>
+          <li><button class="windowNav">Window</button></li>
+          <li><button class="helpNav">Help</button></li>
+       </ul>
+      </nav>
+    </section>
+  </header>
+<div class = "panel">
+    <button type="button" class="red"></button>
+    <button type="button" class="green"></button>
+    <button type="button" class="blue"></button>
+    <button type="button" class="orange"></button>
+    <button type="button" class="black"></button>
+    <button type="button" class="white"></button>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      <p>Brush Size: <span id="demo"></span>%</p>
+    </div>
+</div>
+  <canvas id="canvas"></canvas>
+  <script src="Canvas.js" ></script>
+</body>
+</html>
