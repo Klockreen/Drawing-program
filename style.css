@@ -3,38 +3,98 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #575757;
-  z-index: 1;
-  font-family: Arial, Helvetica, sans-serif
+  
+  
 } 
 .main-nav{
   position: fixed;
   width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  z-index: 2;
 }
 
-nav ul {
-
+.main-nav li{
+  list-style: none;
 }
 
- nav li{
+
+.editBtn, .filebtn, .typeBtn, 
+.selectBtn , .imageBtn, .layerBtn, .filterBtn,
+ .threedBtn, .viwetBtn, .windowBtn, .helpBtn{
   display: inline-block;
   font-size: 1rem;
-}
-
-nav button{
   color: #d3d3d3;
   border: none;
   margin: 3px;
   padding: 1px;
   border: solid 0.3px #575757;
+ 
+}
+
+.editBtn:hover, .filebtn:hover, .typeBtn:hover,
+ .selectBtn:hover, .imageBtn:hover, .layerBtn:hover,
+ .filterBtn:hover , .threedBtn:hover, .viwetBtn:hover,
+ .windowBtn:hover, .helpBtn:hover{
+  color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: solid 0.3px black; 
+  background-color: #424242;
+} 
+
+.editdropdown button:focus + ul
+,.filedropdown button:focus + ul
+,.typedropdown button:focus + ul
+,.selectdropdown button:focus + ul
+, .imagedropdown button:focus + ul
+, .layerdropdown button:focus + ul
+, .filterdropdown button:focus + ul
+, .threeddropdown button:focus + ul
+, .viwedropdown button:focus + ul
+, .windowdropdown button:focus + ul
+, .helpdropdown button:focus + ul {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 5;
+}
+
+.dropdown{
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.main-nav ul{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+} 
+
+.dropbtn{
+  display: inline-block;
+  font-size: 17px;
+  background: white;
+  color: black;
+  border: none;
+  margin: 0px;
+  padding-top: 5px;
+  width: 200px;
+ 
  /*  width: 45px; */
 }
 
-nav button:hover{
-  color: white;
-  border: solid 0.3px black; 
-  background-color: #424242;
-
+.dropbtn:hover{
+  background-color: #3b78fc;
 }
+
+
 
 
 /* canvas */
@@ -48,7 +108,7 @@ nav button:hover{
 
 /* panel */
 
-.panel{
+ .panel{
   display: flex;
   flex-direction:row;
   align-items: center;
@@ -57,6 +117,7 @@ nav button:hover{
   width: 100vw;
   position: fixed;
   margin-top: 25px;
+  z-index: 1;
 }
 
 .panel button{
@@ -70,26 +131,40 @@ nav button:hover{
 
 /* Slider */
 
-.slider{
+.opslidecontainer, .slidecontainer{
+  margin-left: 40px;
+}
+ .slider,  .Opslider{
   
-  margin: 5px;
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
-  border-radius: 5px;  
-  background: #d3d3d3;
+  border-radius: 3px;  
+  background: #444444;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
-  transition: opacity .2s;
+  transition: opacity .2s; 
+}
+.slider::-webkit-slider-thumb,
+.opslider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 100px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 
-.slider:hover {
+.slider:hover, .Opslider:hover {
   opacity: 1; 
 }
 
-.slider::-moz-range-thumb {
+.slider::-moz-range-thumb, .opslider::-moz-range-thumb {
   width: 25px; 
   height: 25px; 
   cursor: pointer; 
@@ -97,7 +172,7 @@ nav button:hover{
 
 p{
   color: #d3d3d3;
-}
+} 
 
 
 

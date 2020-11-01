@@ -12,13 +12,19 @@ window.addEventListener('load' , () => {
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   output.innerHTML = slider.value;
+
+  /* const Opsliderbar = document.getElementById("Opslider");
   
+  var Opslider = document.getElementById("myOpRange");
+  var Opoutput = document.getElementById("Opdemo");
+  output.innerHTML = Opslider.value; */
+   
 
 
 
   const canvas = document.querySelector("#canvas");
   const ctx = canvas.getContext("2d");
-  //const changeColor = document.querySelector("button");
+  
 
   //Resizing
   canvas.height = window.innerHeight;
@@ -64,6 +70,7 @@ window.addEventListener('load' , () => {
     if (!painting) return;
    /*  ctx.lineWidth = 5; */
     ctx.lineCap = "round";
+    /* ctx.globalAlpha = 1; */
     
     
     
@@ -103,9 +110,16 @@ window.addEventListener('load' , () => {
   slider.oninput = function() {
     output.innerHTML = this.value;
     ctx.lineWidth = this.value;
-    console.log(ctx.lineWidth)
-  
+    /* console.log(ctx.lineWidth) */
+    
+    /* ctx.globalAlpha = this.value;
+    console.log(ctx.globalAlpha) */
   }
+
+/*   Opslider.Opoutput = function() {
+    output.innerHTML = this.value;
+  }
+   */
 
 
 
