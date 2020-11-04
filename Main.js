@@ -1,29 +1,39 @@
 window.addEventListener('load' , () => {
-  //colorsBtn
-  const redBtn = document.querySelector(".red");
-  const greenBtn = document.querySelector(".green");
+  //verebles
+  const pen = document.querySelector(".pen");
+  /* const greenBtn = document.querySelector(".green");
   const blueBtn = document.querySelector(".blue");
-  const orangeBtn = document.querySelector(".orange");
-  const blackBtn = document.querySelector(".black");
-  const whiteBtn = document.querySelector(".white");
+  const orangeBtn = document.querySelector(".orange"); */
+  const clearBtn = document.querySelector(".clear");
+  const eraserBtn = document.querySelector(".erase");
+ 
+  //varibles canvas
+  const canvas = document.querySelector("#canvas");
+  const ctx = canvas.getContext("2d");
+
+  document.getElementById("color").onchange = change;
+
 
   const sliderBar = document.querySelector("slider");
 
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
 
-  /* const Opsliderbar = document.getElementById("Opslider");
+    //EventListeners
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', endPosition);
+    canvas.addEventListener('mousemove', draw);
   
-  var Opslider = document.getElementById("myOpRange");
-  var Opoutput = document.getElementById("Opdemo");
-  output.innerHTML = Opslider.value; */
-   
+  
+     pen.addEventListener('click',pentool);
+  /*   greenBtn.addEventListener('click',changeToGreen);
+    blueBtn.addEventListener('click',changeToBlue);
+    orangeBtn.addEventListener('click',changeToOrange); */
+    eraserBtn.addEventListener('click',eraserBtn);
+    clearBtn.addEventListener('click',clear); 
 
-
-
-  const canvas = document.querySelector("#canvas");
-  const ctx = canvas.getContext("2d");
+  
+  output.innerHTML = slider.value;
   
 
   //Resizing
@@ -39,21 +49,14 @@ window.addEventListener('load' , () => {
   ctx.fillRect(200,200, 200, 200 );
 */
 
-/* 
- //Draw line
- ctx.beginPath();
- ctx.moveTo(100,100);
- ctx.lineTo(200,100);
- ctx.lineTo(200,150);
- ctx.lineTo(300,150);
- ctx.closePath();
- ctx.stroke();
-*/
+
+
 
  //variables
   let painting = false;
+  var color = "rgb(0,0,0)";
 
-
+  
 
   function startPosition(e){
     painting = true;
@@ -66,73 +69,90 @@ window.addEventListener('load' , () => {
     
   }
 
-  function draw(e){
+  function draw(e)
+  {
     if (!painting) return;
-   /*  ctx.lineWidth = 5; */
     ctx.lineCap = "round";
     /* ctx.globalAlpha = 1; */
-    
-    
-    
-
+    ctx.strokeStyle = color;
     ctx.lineTo(e.clientX, e.clientY);
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.clientX, e.clientY);
+    ctx.fill()
+  }
+      
 
+  function pentool ()
+  {
+    painting = true;
+    ctx.stroke();
+    console.log(painting)
   }
-  function changeToRed (){
+
+
+    function change(e)
+    {
+     color = this.value;    
+     console.log(color)
+    }
+    
+
+/*      function eraserBtn  ()
+    {
+      console.log(painting)
+      console.log("eraser")
+      ctx.globalCompositeOperation = 'source-out';   
+      painting = fasle;
+      
+    }
+ */
+    function clear(){
+      painting = false;
+      console.log(painting)
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+
+/*     
+    function changeToBlack (){
    
-    ctx.strokeStyle = "red";
-  }
+      color = "black";
+    }
+
+ 
   function changeToGreen (){
    
-    ctx.strokeStyle = "green";
+    color = "green";
   }
   function changeToBlue (){
    
-    ctx.strokeStyle = "blue";
+    color = "blue";
   }
   function changeToOrange (){
    
-    ctx.strokeStyle = "orange";
+    color = "orange";
   }
-  function changeToBlack (){
-   
-    ctx.strokeStyle = "black";
-  }
-  function changeToWhite (){
-   
-    ctx.strokeStyle = "white";
-  }
+  */
+
     
 
-  slider.oninput = function() {
+  slider.oninput = function() 
+  {
     output.innerHTML = this.value;
     ctx.lineWidth = this.value;
-    /* console.log(ctx.lineWidth) */
     
-    /* ctx.globalAlpha = this.value;
-    console.log(ctx.globalAlpha) */
   }
 
-/*   Opslider.Opoutput = function() {
-    output.innerHTML = this.value;
-  }
-   */
+
+
+  
+   
 
 
 
-  //EventListeners
-  canvas.addEventListener('mousedown', startPosition);
-  canvas.addEventListener('mouseup', endPosition);
-  canvas.addEventListener('mousemove', draw);
-  redBtn.addEventListener('click',changeToRed);
-  greenBtn.addEventListener('click',changeToGreen);
-  blueBtn.addEventListener('click',changeToBlue);
-  orangeBtn.addEventListener('click',changeToOrange);
-  whiteBtn.addEventListener('click',changeToWhite);
-  blackBtn.addEventListener('click',changeToBlack);
+
+  
 
 
 });
