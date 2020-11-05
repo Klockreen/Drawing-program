@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Canvas</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="brush.css">
 </head>
 <body>
   <header>
@@ -169,29 +170,33 @@
       </nav>
     </section>
   </header>
-<div class = "panel">
+<div class = "panel"> 
     <button type="button" class="clear">C</button>
     <button type="button" class="pen">P</button>
+    <div id="alpha">
+      Strognes <span id="alphaval">10</span>
+      <div id="decalpha" class="alphactl">+</div>
+      <div id="inalpha" class="alphactl">-</div>
+    </div>
     <!--<button type="button" class="green"></button>
     <button type="button" class="blue"></button>
     <button type="button" class="orange"></button> -->
     <button type="button" class="erase">E</button>
     <div class="colorPick">
-      <input type="color" id="color" value="Color"4>
+      <input type="color" id="color" > <!-- value="Color" -->
     </div>  
       <input type="range" class="range" min="1" max="100" value="1" class="slider" id="myRange">
-      <p>Brush Size: <span id="demo"></span>%</p>
+      <p> Size: <span id="demo"></span>%</p>
     </div>
-    <div class="opSlider">
-      <span di="rangeValue">0</span>
-      <input type="range" class="range" name="" value="100" min="0" max="100" on mousemove="rangslider">
-    </div>
+    <div id="brush"></div>
+    
   
     
     
 </div> 
   <canvas id="canvas"></canvas> 
    <script src="Main.js" ></script>
+   <script src="Ctls.js" ></script>
   
 </body>
 </html>

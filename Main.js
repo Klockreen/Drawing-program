@@ -1,9 +1,10 @@
 window.addEventListener('load' , () => {
-  //verebles
-  const pen = document.querySelector(".pen");
+  //const
+  
   /* const greenBtn = document.querySelector(".green");
   const blueBtn = document.querySelector(".blue");
   const orangeBtn = document.querySelector(".orange"); */
+  const pen = document.querySelector(".pen");
   const clearBtn = document.querySelector(".clear");
   const eraserBtn = document.querySelector(".erase");
  
@@ -16,25 +17,26 @@ window.addEventListener('load' , () => {
 
   const sliderBar = document.querySelector("slider");
 
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
+  
+   
+  
 
     //EventListeners
     canvas.addEventListener('mousedown', startPosition);
     canvas.addEventListener('mouseup', endPosition);
     canvas.addEventListener('mousemove', draw);
   
-  
-     pen.addEventListener('click',pentool);
-  /*   greenBtn.addEventListener('click',changeToGreen);
-    blueBtn.addEventListener('click',changeToBlue);
-    orangeBtn.addEventListener('click',changeToOrange); */
-    eraserBtn.addEventListener('click',eraserBtn);
+    eraserBtn.addEventListener('click',erase)
+    pen.addEventListener('click',pentool);
     clearBtn.addEventListener('click',clear); 
 
+      /*   greenBtn.addEventListener('click',changeToGreen);
+    blueBtn.addEventListener('click',changeToBlue);
+    orangeBtn.addEventListener('click',changeToOrange); */
+
   
-  output.innerHTML = slider.value;
-  
+  /* output.innerHTML = slider.value;
+   */
 
   //Resizing
   canvas.height = window.innerHeight;
@@ -55,6 +57,13 @@ window.addEventListener('load' , () => {
  //variables
   let painting = false;
   var color = "rgb(0,0,0)";
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  
+
+  
+ 
+
 
   
 
@@ -73,7 +82,7 @@ window.addEventListener('load' , () => {
   {
     if (!painting) return;
     ctx.lineCap = "round";
-    /* ctx.globalAlpha = 1; */
+    ctx.globalAlpha  = alpha ;
     ctx.strokeStyle = color;
     ctx.lineTo(e.clientX, e.clientY);
     ctx.stroke();
@@ -81,13 +90,23 @@ window.addEventListener('load' , () => {
     ctx.moveTo(e.clientX, e.clientY);
     ctx.fill()
   }
-      
+  /* function alpha(){
+    alpha = 0.3;
+  } */
+  
+/*   var i 
+  for (i = 1; i < 5; i = i  +1){
+    alert(i)
+  } */
+
 
   function pentool ()
   {
     painting = true;
     ctx.stroke();
     console.log(painting)
+    alpha = 0.3;
+    console.log(alpha)
   }
 
 
@@ -98,15 +117,15 @@ window.addEventListener('load' , () => {
     }
     
 
-/*      function eraserBtn  ()
-    {
-      console.log(painting)
-      console.log("eraser")
-      ctx.globalCompositeOperation = 'source-out';   
-      painting = fasle;
+   function erase(){
+     /* var bgColor; */
+     /* document.getElementById(".canvas").style.'background-Color' = color; */
+     /* color = bgColor; */
+     color =  '#d3d3d3';
+     }
       
-    }
- */
+  
+
     function clear(){
       painting = false;
       console.log(painting)
