@@ -11,10 +11,7 @@ window.addEventListener('load' , () => {
   //varibles canvas
   const canvas = document.querySelector("#canvas");
   const ctx = canvas.getContext("2d");
-
   document.getElementById("color").onchange = change;
-
-
   const sliderBar = document.querySelector("slider");
 
   
@@ -27,31 +24,15 @@ window.addEventListener('load' , () => {
     canvas.addEventListener('mousemove', draw);
   
     eraserBtn.addEventListener('click',erase)
-    pen.addEventListener('click',pentool);
+   /*  pen.addEventListener('click',pentool); */
     clearBtn.addEventListener('click',clear); 
 
-      /*   greenBtn.addEventListener('click',changeToGreen);
-    blueBtn.addEventListener('click',changeToBlue);
-    orangeBtn.addEventListener('click',changeToOrange); */
-
-  
-  /* output.innerHTML = slider.value;
-   */
-
+   
   //Resizing
+/*   canvas.width  = 800;
+     canvas.height = 600; */
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
-
-  
-/*
-  //rectangle 
-  ctx.fillStyle = "red";
-  ctx.fillRect(50,100, 200, 200 );
-  ctx.fillStyle = "orange";
-  ctx.fillRect(200,200, 200, 200 );
-*/
-
-
 
 
  //variables
@@ -60,10 +41,6 @@ window.addEventListener('load' , () => {
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   
-
-  
- 
-
 
   
 
@@ -90,24 +67,14 @@ window.addEventListener('load' , () => {
     ctx.moveTo(e.clientX, e.clientY);
     ctx.fill()
   }
-  /* function alpha(){
-    alpha = 0.3;
-  } */
-  
-/*   var i 
-  for (i = 1; i < 5; i = i  +1){
-    alert(i)
-  } */
 
-
-  function pentool ()
+ /*  function pentool ()
   {
     painting = true;
     ctx.stroke();
     console.log(painting)
-    alpha = 0.3;
-    console.log(alpha)
-  }
+    
+  } */
 
 
     function change(e)
@@ -128,50 +95,22 @@ window.addEventListener('load' , () => {
 
     function clear(){
       painting = false;
-      console.log(painting)
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
-
-
-/*     
-    function changeToBlack (){
-   
-      color = "black";
+    slider.oninput = function() 
+    {
+      output.innerHTML = this.value;
+      ctx.lineWidth = this.value;
+      
     }
-
- 
-  function changeToGreen (){
-   
-    color = "green";
-  }
-  function changeToBlue (){
-   
-    color = "blue";
-  }
-  function changeToOrange (){
-   
-    color = "orange";
-  }
-  */
-
-    
-
-  slider.oninput = function() 
-  {
-    output.innerHTML = this.value;
-    ctx.lineWidth = this.value;
-    
-  }
-
-
-
   
-   
-
-
-
-
-  
+  /*
+  //rectangle 
+  ctx.fillStyle = "red";
+  ctx.fillRect(50,100, 200, 200 );
+  ctx.fillStyle = "orange";
+  ctx.fillRect(200,200, 200, 200 );
+*/
 
 
 });

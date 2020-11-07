@@ -46,7 +46,10 @@ var minAlpha = 0.1,
 
 let brush = document.getElementById('brush');
 const onMouseMove = (e) =>{
-  brush.style.left = e.clientX, e.clientY+ 'px';
+  brush.style.left = e.clientX+ 'px';
+  brush.style.right = e.clientY+ 'px';
   
 }
 document.addEventListener('mousemove', onMouseMove);
+
+document.getElementById("canvas")

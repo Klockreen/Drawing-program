@@ -1,0 +1,65 @@
+.dropdown{
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.dropbtn
+{
+  display: inline-block;
+  font-size: 17px;
+  background: white;
+  color: black;
+  border: none;
+  margin: 0px;
+  padding-top: 5px;
+  width: 200px;
+}
+
+.dropbtn:hover
+{
+  background-color: #3b78fc;
+}
+
+.editBtn, .filebtn, .typeBtn, 
+.selectBtn , .imageBtn, .layerBtn, .filterBtn,
+ .threedBtn, .viwetBtn, .windowBtn, .helpBtn
+ {
+  display: inline-block;
+  font-size: 1rem;
+  color: #d3d3d3;
+  border: none;
+  margin: 3px;
+  padding: 1px;
+  border: solid 0.3px #575757;
+ 
+}
+
+.editBtn:hover, .filebtn:hover, .typeBtn:hover,
+ .selectBtn:hover, .imageBtn:hover, .layerBtn:hover,
+ .filterBtn:hover , .threedBtn:hover, .viwetBtn:hover,
+ .windowBtn:hover, .helpBtn:hover
+ {
+  color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: solid 0.3px black; 
+  background-color: #424242;
+} 
+
+.editdropdown button:focus + ul
+,.filedropdown button:focus + ul
+,.typedropdown button:focus + ul
+,.selectdropdown button:focus + ul
+, .imagedropdown button:focus + ul
+, .layerdropdown button:focus + ul
+, .filterdropdown button:focus + ul
+, .threeddropdown button:focus + ul
+, .viwedropdown button:focus + ul
+, .windowdropdown button:focus + ul
+, .helpdropdown button:focus + ul 
+{
+  opacity: 1;
+  pointer-events: all;
+  z-index: 5;
+}
